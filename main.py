@@ -6,17 +6,19 @@ from random import choice
 
 #combine functions and conditionals to get a response from the bot
 def get_mood_bot_response(user_response):
-
-  #add some bot responses to this list
-  bot_response_happy = ["Epic","Neato","Awesome","Incredible"]
-  bot_response_else-["Interesting","Huhh...","I see"]
-  if user_response == "happy":
-    #TODO: use choice to randomly return a response from the list
-    return choice(bot_response_happy)
-  elif user_response=="done":
-      break
-  else:
-    return choice(bot_response_else)
+    #Accepted responses
+    inputAccept=["great","good","epic","happy"]
+    #add some bot responses to this list
+    bot_response_happy = ["Epic","Neato","Awesome","Incredible"]
+    bot_response_else = ["Interesting","Huhh...","I see"]
+    if user_response == "done":
+        return ("Goodbye")
+    if user_response != "done":
+        if user_response in inputAccept:
+            #TODO: use choice to randomly return a response from the list
+            return choice(bot_response_happy)
+        else:
+            return choice(bot_response_else)
 
 
 
