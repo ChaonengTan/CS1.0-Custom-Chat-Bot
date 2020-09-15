@@ -12,7 +12,7 @@ def get_mood_bot_response(user_response):
     bot_response_happy = ["Epic","Neato","Awesome","Incredible"]
     bot_response_else = ["Interesting","Huhh...","I see"]
     if user_response == "done":
-        return ("Goodbye")
+        return ("Ok... I see... Goodbye...")
     if user_response != "done":
         if ifIn(user_response, inputAccept):
             #TODO: use choice to randomly return a response from the list
@@ -27,16 +27,24 @@ def ifIn(inputInput, inputList):
 
 
 
-print("Welcome to Mood Bot, This bot is totally useless and will give vague responses! Thank you for your time!")
+print("Welcome to Mood Bot!")
 print("Please enter how you are feeling")
 
 user_response = ""
+askTimes=0
 #TODO: we want to keep repeating until the user enters "done" what should we put here?
 while user_response!="done":
-  user_response = input("How are you feeling today?: ")
-  #TODO: what goes here
-  bot_response = get_mood_bot_response(user_response)
-  print(bot_response)
-
-
-
+    if askTimes==0:
+        user_response = input("How are you feeling today?: ")
+        bot_response = get_mood_bot_response(user_response)
+        print(bot_response)
+        askTimes+=1
+    elif askTimes==1:
+        user_response = input("How are you feeling now?: ")
+        bot_response = get_mood_bot_response(user_response)
+        print(bot_response)
+        askTimes+=1
+    else:
+        user_response = input("How about now?: ")
+        bot_response = get_mood_bot_response(user_response)
+        print(bot_response)
