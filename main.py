@@ -14,16 +14,20 @@ def get_mood_bot_response(user_response):
     if user_response == "done":
         return ("Goodbye")
     if user_response != "done":
-        if user_response in inputAccept:
+        if ifIn(user_response, inputAccept):
             #TODO: use choice to randomly return a response from the list
             return choice(bot_response_happy)
         else:
             return choice(bot_response_else)
+def ifIn(inputInput, inputList):
+    for value in inputList:
+        if value in inputInput:
+            return True
+    return False
 
 
 
-
-print("Welcome to Mood Bot")
+print("Welcome to Mood Bot, This bot is totally useless and will give vague responses! Thank you for your time!")
 print("Please enter how you are feeling")
 
 user_response = ""
