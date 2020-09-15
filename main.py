@@ -8,13 +8,15 @@ from random import choice
 def get_mood_bot_response(user_response):
 
   #add some bot responses to this list
-  bot_response_happy = ["Epic","Neato","Awesome"]
-
+  bot_response_happy = ["Epic","Neato","Awesome","Incredible"]
+  bot_response_else-["Interesting","Huhh...","I see"]
   if user_response == "happy":
     #TODO: use choice to randomly return a response from the list
     return choice(bot_response_happy)
+  elif user_response=="done":
+      break
   else:
-    return ("Interesting...")
+    return choice(bot_response_else)
 
 
 
@@ -24,7 +26,7 @@ print("Please enter how you are feeling")
 
 user_response = ""
 #TODO: we want to keep repeating until the user enters "done" what should we put here?
-while ...:
+while user_response!="done":
   user_response = input("How are you feeling today?: ")
   #TODO: what goes here
   bot_response = get_mood_bot_response(user_response)
